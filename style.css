@@ -1,0 +1,37 @@
+body {
+  font-family: "Noto Serif", serif;
+}
+
+button {
+  padding: 10px;
+  font-size: 1.2em;
+  background-color: black;
+  color: white;
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+.quez {
+  font-size: 2em;
+  display: block;
+  border: 1px solid #ddd;
+  padding: 20px;
+}
+
+.message {
+  text-align: center;
+  width: 70%;
+  font-size: 2em;
+  color: red;
+  margin: 20px auto;
+}
+
+.opts {
+  background-color: blue;
+  margin: 5px;
+  border-radius: 25px;
+  padding: 15px;
+}
