@@ -56,7 +56,47 @@ function startGame() {
 }
 
 function disQuestion() {
-  //  game.cur
+  // game.cur
+  output.innerHTML = "";
+  h1ele.textContent = `${game.cur} of ${tempData.length} Questions`;
   let question = tempData[game.cur];
   console.log(question);
+  const div = document.createElement("div");
+  const ques = document.createElement("h3");
+  const div1 = document.createElement("div");
+  ques.textContent = question.question;
+  question.answers.sort(() => {
+    return 0.5 - Math.random();
+  });
+  question.answers.forEach((el) => {
+    const sel = document.createElement("button");
+    div1.append(sel);
+    sel.textContent = el.res;
+    sel.addEventListener("click", (e) => {
+      disButton(div1);
+      if (el.cor) {
+        console.log("Correct");
+        sel.style.backgroundColor = "green";
+        game.score++;
+        output.innerHTML += "Great you got it Right";
+      } else {
+        console.log("Wrong");
+        sel.style.backgroundColor = "red";
+      }
+    });
+  });
+  output.append(div);
+  div.append(ques);
+  div.append(div1);
+}
+
+function disButton(ele) {
+  const eles = ele.querySelectorAll("button");
+  console.log(eles);
+  eles.forEach((btnz) => {
+    btnz.disabled = true;
+    btn1.style.display = "block";
+    btn1.textContent = "Next Question";
+  });
+  game.cur++;
 }
